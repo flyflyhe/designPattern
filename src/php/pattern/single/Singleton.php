@@ -8,6 +8,8 @@ class Singleton
      */
     private static $instance;
 
+    public $test = true;
+
     public static function getInstance()
     {
         if (null === static::$instance) {
@@ -32,10 +34,16 @@ class Singleton
     }
 
     /**
-     *防止被反序列化
+     *__wakeup当对象被成功反序列化后会尝试调用此函数
      */
     private function __wakeup()
     {
+        echo 'I am __wakeup'.PHP_EOL;
+        return false;
+    }
 
-    } 
+    public function __destruct()
+    {
+
+    }
 }

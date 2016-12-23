@@ -24,4 +24,12 @@ class SingletonTest extends TestCase
         $method = $ref->getMethod('__construct');
         $this->assertTrue($method->isPrivate());
     }
+
+    public function testunSerialize()
+    {
+        $obj = Singleton::getInstance();
+        $serlize = serialize($obj);
+        var_dump($serlize);
+        $this->assertTrue(unserialize($serlize)->test);
+    }
 }
