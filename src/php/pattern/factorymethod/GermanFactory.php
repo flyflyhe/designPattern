@@ -1,7 +1,7 @@
 <?php
 namespace my\php\pattern\factorymethod;
 
-class ItalianFactory extends FactoryMethod
+class GermanFactory extends FactoryMethod
 {
     protected function createVehicle($type)
     {
@@ -10,7 +10,9 @@ class ItalianFactory extends FactoryMethod
                 return new Bicycle();
                 break;
             case parent::FAST:
-                return new Ferrari();
+                $obj = new Porsche();
+                $obj->addTuningAMG();
+                return $obj;
                 break;
             default:
                 throw new \Exception("$type is not a valid vehicle");
